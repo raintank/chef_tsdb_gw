@@ -1,3 +1,4 @@
+default[:use_statsd] = true
 default[:chef_tsdb_gw]['log_level'] = 2
 default[:chef_tsdb_gw]['addr'] = ":8081"
 default[:chef_tsdb_gw]['ssl'] = false
@@ -5,7 +6,7 @@ default[:chef_tsdb_gw]['cert_file'] = ""
 default[:chef_tsdb_gw]['key_file'] = ""
 default[:chef_tsdb_gw]['real_ssl_cert'] = false
 default[:chef_tsdb_gw]['ssl_data_bag'] = node.fqdn
-default[:chef_tsdb_gw]['stats_enabled'] = false
+default[:chef_tsdb_gw]['stats_enabled'] = true
 default[:chef_tsdb_gw]['statsd_addr'] = "localhost:8125"
 default[:chef_tsdb_gw]['statsd_type'] = "standard"
 default[:chef_tsdb_gw]['admin_key'] = "CHANGEME"
