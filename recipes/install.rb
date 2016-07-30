@@ -80,4 +80,4 @@ template "/etc/raintank/tsdb.ini" do
   notifies :restart, 'service[tsdb]', :delayed
 end
 
-
+tag("tsdb")
