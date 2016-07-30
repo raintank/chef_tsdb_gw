@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-include "chef_base::default"
-include "chef_graphite_api::install"
-include "chef_tsdb_gw::install"
-include "chef_tsdb_gw::collectd"
+include_recipe "chef_base::default"
+include_recipe "chef_graphite_api::install"
+include_recipe "chef_tsdb_gw::install"
+include_recipe "chef_tsdb_gw::collectd"

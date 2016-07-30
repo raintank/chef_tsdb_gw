@@ -19,10 +19,10 @@ end
 package "tsdb-gw" do
   version pkg_version
   action pkg_action
-  notifies :restart, 'service[tsdb]', :delayed
+  notifies :restart, 'service[tsdb-gw]', :delayed
 end
 
-service "tsdb" do
+service "tsdb-gw" do
   case node["platform"]
   when "ubuntu"
     if node["platform_version"].to_f >= 15.04
@@ -62,7 +62,7 @@ if node['chef_tsdb_gw']['ssl']
   else
     cert = ssl_certificate "tsdb-#{node.name}" do
       namespace nspace
-      notifies :restart, 'service[tsdb]', :delayed
+      notifies :restart, 'service[tsdb-gw]', :delayed
     end
 
     node.set['chef_tsdb_gw']['cert_file'] = cert.cert_path
@@ -77,7 +77,7 @@ template "/etc/raintank/tsdb.ini" do
   group 'root'
   action :create
   # notifies ....
-  notifies :restart, 'service[tsdb]', :delayed
+  notifies :restart, 'service[tsdb-gw]', :delayed
 end
 
 tag("tsdb")
