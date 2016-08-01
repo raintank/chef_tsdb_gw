@@ -7,6 +7,7 @@ proxy = find_haproxy || ''
 if !proxy.empty?
 	node.override['chef_tsdb_gw']['elasticsearch_url'] = "http://#{proxy}:9200/"
 	node.override['chef_tsdb_gw']['graphite_url'] = "http://#{proxy}:8888/"
+	node.override['chef_tsdb_gw']['kafka_tcp_addr'] = "#{proxy}:9092"
 end
 
 pkg_version = node['chef_tsdb_gw']['version']
