@@ -20,3 +20,11 @@ default[:chef_tsdb_gw]['graphite_url'] = "http://localhost:8888/"
 default[:chef_tsdb_gw]['worldping_url'] = "https://worldping-api.raintank.io/"
 default[:chef_tsdb_gw]['elasticsearch_url'] = "http://localhost:9200/"
 default[:chef_tsdb_gw]['es_index'] = "events"
+
+# nginx
+default[:chef_tsdb_gw][:domain] = "localhost"
+default[:chef_tsdb_gw][:backend] = "localhost:8081"
+default[:chef_tsdb_gw][:nginx][:use_ssl] = false
+default[:chef_tsdb_gw][:nginx][:ssl_cert_file] = "/etc/nginx/ssl/tsdb-gw.crt"
+default[:chef_tsdb_gw][:nginx][:ssl_key_file] = "/etc/nginx/ssl/tsdb-gw.key"
+default[:chef_tsdb_gw][:nginx][:ssl_data_bag] = node[:chef_tsdb_gw][:domain]

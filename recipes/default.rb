@@ -20,4 +20,5 @@
 include_recipe "chef_base::default"
 include_recipe "chef_graphite_api::install"
 include_recipe "chef_tsdb_gw::install"
+include_recipe "chef_tsdb_gw::nginx"
 include_recipe "chef_tsdb_gw::collectd"
