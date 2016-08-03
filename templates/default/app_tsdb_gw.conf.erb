@@ -23,7 +23,7 @@ server {
 # TODO: allow for listening on HTTPS, upgrading the connection for non-SSL.
 server {
   listen 80 default deferred; # for Linux
-  server_name <%= node['chef_tsdb_gw']['domain'] %>;
+  server_name <%= node['chef_tsdb_gw']['domain'] %> <%= node['chef_tsdb_gw']['aliases'].join(' ') %>;
 
   # allow only valid crud methods
   if ($request_method !~ GET|POST|PUT|DELETE|PATCH) {
