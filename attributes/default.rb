@@ -29,3 +29,5 @@ default[:chef_tsdb_gw][:nginx][:use_ssl] = false
 default[:chef_tsdb_gw][:nginx][:ssl_cert_file] = "/etc/nginx/ssl/tsdb-gw.crt"
 default[:chef_tsdb_gw][:nginx][:ssl_key_file] = "/etc/nginx/ssl/tsdb-gw.key"
 default[:chef_tsdb_gw][:nginx][:ssl_data_bag] = node[:chef_tsdb_gw][:domain]
+
+override[:nginx][:client_max_body_size] = "10m"
