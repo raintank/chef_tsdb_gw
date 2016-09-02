@@ -32,7 +32,7 @@ service "tsdb-gw" do
       provider Chef::Provider::Service::Upstart
     end
   end
-  action [ :enable, :start]
+  action [ :enable ]
 end
 
 nspace = {
